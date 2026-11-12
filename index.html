@@ -403,7 +403,7 @@ footer{margin-top:90px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2
       </div>
       <form id="form" novalidate>
         <!-- ===== À REMPLACER : ta clé Web3Forms (voir GUIDE_MISE_EN_LIGNE.md) ===== -->
-        <input type="hidden" name="access_key" value="COLLE_TA_CLE_WEB3FORMS_ICI">
+        <input type="hidden" name="access_key" value="cdb75417-0c38-46d2-9a99-44caa40c1f69">
         <input type="hidden" name="subject" value="Nouveau message depuis le site 14 × 8000 m">
         <input type="hidden" name="from_name" value="Site 14 × 8000 m">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
@@ -567,7 +567,7 @@ footer{margin-top:90px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2
     e.preventDefault();
     if (!form.checkValidity()) { dire("Il manque votre nom, un e-mail valide ou votre message.", false); form.reportValidity(); return; }
     const d = Object.fromEntries(new FormData(form));
-    if (d.access_key.startsWith("COLLE_")) {
+   
       const corps = encodeURIComponent(`${d.message}\n\n${d.nom}${d.entreprise ? ", " + d.entreprise : ""}\n${d.email}${d.telephone ? "\n" + d.telephone : ""}\nSoutien : ${d.type_de_soutien}`);
       dire(`Le formulaire n'est pas encore activé. <a href="mailto:danigrabereduvaud@gmail.com?subject=${encodeURIComponent("Partenariat 14 × 8000 m")}&body=${corps}">Envoyer ce message par e-mail</a>.`, false); return;
     }
