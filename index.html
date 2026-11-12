@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dani Graber, objectif 14 × 8000 m</title>
+<meta name="description" content="Dani, 16 ans, Nord vaudois. Objectif : les 14 sommets de plus de 8000 m, en commençant par le Mont Blanc à l'été 2027. Devenez partenaire.">
+<meta property="og:title" content="Dani Graber, objectif 14 × 8000 m">
+<meta property="og:description" content="Un jeune alpiniste du Nord vaudois, un sommet après l'autre. Première étape : le Mont Blanc, été 2027.">
+<meta property="og:image" content="toubkal-sommet.jpg">
+<meta name="theme-color" content="#ffe4bf">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Crect y='10.5' width='32' height='11' fill='%23d4141c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14202b; --ink-2:#44525f; --panneau:#ffd400; --balise:#d4141c; --neige:#fff;
+  --nuit:#0d1a33; --ciel-nuit:#c9d8ee;
+  --disp:"Barlow Condensed","Arial Narrow",sans-serif; --txt:"Barlow",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:#fbeedb;color:var(--ink);font-family:var(--txt);font-size:18px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--balise);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+@media (min-width:761px){.wrap{width:min(1120px,100% - 170px)}}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:.95;letter-spacing:-.005em}
+h2{font-size:clamp(46px,9vw,112px)}
+p{max-width:34em}
+.grand{font-size:clamp(20px,2.6vw,26px);line-height:1.4}
+
+/* ----- panneau de randonnée (le motif du site) ----- */
+.panneau{display:inline-flex;align-items:stretch;font-family:var(--disp);font-weight:700;font-size:20px;line-height:1;color:#111;text-decoration:none;filter:drop-shadow(0 2px 0 rgba(0,0,0,.18))}
+.panneau .b{width:26px;background:linear-gradient(#fff 0 33%,var(--balise) 33% 67%,#fff 67%)}
+.panneau .t{background:var(--panneau);padding:11px 30px 11px 14px;display:flex;gap:18px;align-items:baseline;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%)}
+.panneau .t small{font-weight:600;font-size:16px;opacity:.75;white-space:nowrap}
+a.panneau{transition:transform .2s}
+a.panneau:hover{transform:translateX(6px)}
+.repere{margin-bottom:26px}
+
+/* ----- altimètre ----- */
+.alti{position:fixed;z-index:60;right:18px;top:50%;transform:translateY(-50%);height:min(56vh,460px);width:54px;pointer-events:none;color:var(--ink);opacity:0;transition:color .4s,opacity .4s}
+.alti.clair{color:#fff}
+.alti .rail{position:absolute;right:6px;top:0;bottom:0;width:2px;background:currentColor;opacity:.25}
+.alti .plein{position:absolute;right:6px;bottom:0;width:2px;background:var(--balise);height:0}
+.alti .cur{position:absolute;right:0;bottom:0;display:flex;align-items:center;gap:6px;transform:translateY(50%);font-family:var(--disp);font-weight:700;font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.alti .cur::after{content:"";width:14px;height:14px;background:linear-gradient(#fff 0 33%,var(--balise) 33% 67%,#fff 67%);box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.alti i{position:absolute;right:6px;width:8px;height:2px;background:currentColor;opacity:.4}
+@media (max-width:760px){
+  .alti{right:10px;bottom:12px;top:auto;transform:none;height:auto;width:auto}
+  .alti .rail,.alti .plein,.alti i{display:none}
+  .alti .cur{position:static;transform:none;font-size:15px;background:rgba(255,255,255,.88);color:#111;padding:5px 8px;bottom:auto!important}
+  .panneau .t{flex-wrap:wrap;gap:2px 12px}
+  .poteau .panneau .t,.hero .bas .panneau .t{flex-direction:column;align-items:flex-start}
+}
+
+/* ----- en-tête ----- */
+.top{position:absolute;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 20px}
+.top .nom{font-family:var(--disp);font-weight:800;font-size:22px;text-decoration:none}
+.top .panneau{font-size:17px}.top .panneau .t{padding:8px 26px 8px 12px}.top .panneau .b{width:18px}
+
+/* ----- 0 m : la vallée ----- */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:linear-gradient(180deg,#a9cdf0 0%,#d9e6f2 38%,#ffe4bf 72%,#ffd29c 100%)}
+.hero svg{position:absolute;left:0;bottom:0;width:100%;height:100%}
+.hero .calque{position:absolute;inset:0;will-change:transform}
+.hero .soleil{position:absolute;left:62%;top:44%;width:min(26vw,220px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff6d8 0 38%,#ffd978 60%,rgba(255,217,120,0) 72%)}
+.hero .titre{position:absolute;left:0;right:0;top:13svh;text-align:center;z-index:3;padding:0 16px}
+.hero h1{font-size:clamp(84px,22vw,300px);line-height:.8;letter-spacing:-.02em;color:var(--ink)}
+.hero h1 span{display:inline-block}
+.hero .sous{margin:0 auto 22px;font-size:clamp(17px,2.2vw,22px);font-weight:500;max-width:30em}
+.hero .bas{position:absolute;left:0;right:0;bottom:28px;z-index:6;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:0 16px}
+.hero .monte{position:absolute;left:50%;bottom:92px;z-index:6;transform:translateX(-50%);color:#fff;font-family:var(--disp);font-weight:600;font-size:17px;white-space:nowrap}
+@media (max-width:760px){.hero .titre{top:17svh}.hero .monte{bottom:150px}}
+
+section{position:relative;padding:clamp(90px,14vw,190px) 0}
+
+/* ----- Dani ----- */
+.dani{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,6vw,90px);align-items:center}
+.dani .cadre{overflow:hidden;aspect-ratio:1;will-change:clip-path}
+.dani .cadre img{width:100%;height:100%;object-fit:cover}
+.dani h2{margin-bottom:22px}
+.dani ul{list-style:none;margin-top:26px;border-top:2px solid var(--ink)}
+.dani li{padding:12px 0;border-bottom:1px solid rgba(20,32,43,.25);display:flex;justify-content:space-between;gap:16px}
+.dani li b{font-family:var(--disp);font-size:22px;font-weight:700}
+@media (max-width:820px){.dani{grid-template-columns:1fr}}
+
+/* ----- défilement horizontal : déjà gravis ----- */
+.roule{padding:0;overflow:hidden}
+.piste{display:flex;align-items:center;gap:clamp(14px,2vw,28px);height:100svh;padding:0 6vw;width:max-content;will-change:transform}
+.piste figure{flex:none;position:relative;cursor:zoom-in}
+.piste figure img{height:68svh;width:auto;max-width:none;object-fit:cover}
+.piste .paire{display:grid;gap:clamp(14px,2vw,28px)}
+.piste .paire img{height:calc(34svh - 10px);aspect-ratio:1}
+.piste .paire:nth-child(even){margin-top:8svh}
+.piste figcaption{position:absolute;left:0;bottom:-30px;font-size:15px;color:var(--ink-2);white-space:nowrap}
+.piste .intro{flex:none;width:min(84vw,560px)}
+.piste .intro h2{font-size:clamp(64px,13vw,170px)}
+.piste .intro .alt{font-family:var(--disp);font-weight:800;font-size:clamp(34px,6vw,64px);color:var(--balise);line-height:1}
+.piste .intro p{margin-top:14px}
+.roule.statique .piste{width:auto;height:auto;flex-wrap:wrap;padding:80px 20px}
+
+/* ----- la suite : graphique d'altitude ----- */
+.suite h2{margin-bottom:14px}
+.graphe{position:relative;margin-top:44px}
+.graphe svg{width:100%;height:auto;display:block;overflow:visible}
+.graphe .grille{stroke:rgba(20,32,43,.16);stroke-width:1}
+.graphe .axe{font:500 13px var(--txt);fill:var(--ink-2)}
+.graphe .massif{fill:rgba(20,32,43,.07)}
+.graphe .crete{fill:none;stroke:rgba(20,32,43,.35);stroke-width:2;stroke-linejoin:round}
+.graphe .trace{fill:none;stroke:var(--ink);stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
+.graphe .pt{cursor:pointer}
+.graphe .pt circle.zone{fill:transparent}
+.graphe .pt .fait{fill:var(--balise);stroke:#e6eaee;stroke-width:2}
+.graphe .pt .but{fill:#e6eaee;stroke:var(--ink);stroke-width:2.5}
+.graphe .grimpeur{fill:var(--panneau);stroke:#111;stroke-width:2}
+.graphe .nom{position:absolute;transform:translate(-50%,-100%);margin-top:-16px;text-align:center;font-family:var(--disp);font-weight:700;font-size:19px;line-height:1.05;white-space:nowrap;pointer-events:none}
+.graphe .nom small{display:block;font:500 13px var(--txt);color:var(--ink-2)}
+.legende{display:flex;gap:22px;margin-top:12px;font-size:15px;color:var(--ink-2)}
+.legende span{display:inline-flex;align-items:center;gap:8px}
+.legende i{width:13px;height:13px;border-radius:50%;display:inline-block}
+.legende .l1{background:var(--balise)}.legende .l2{border:2.5px solid var(--ink)}
+.bulle{position:absolute;z-index:5;background:var(--ink);color:#fff;padding:10px 14px;font-size:15px;line-height:1.35;pointer-events:none;opacity:0;transform:translate(-50%,calc(-100% - 18px));transition:opacity .15s;white-space:nowrap}
+.bulle b{font-family:var(--disp);font-size:20px;display:block}
+.poteau{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin-top:44px}
+.poteau .panneau:nth-child(2){margin-left:22px}.poteau .panneau:nth-child(3){margin-left:44px}.poteau .panneau:nth-child(4){margin-left:66px}
+.suite .note{margin-top:30px;font-size:17px;color:var(--ink-2);border-left:4px solid var(--balise);padding-left:16px}
+@media (max-width:700px){.graphe .nom{font-size:14px}.graphe .nom small{display:none}.graphe .nom.bas{transform:translate(-50%,0);margin-top:10px}.poteau .panneau{margin-left:0!important;font-size:17px}}
+
+/* ----- entraînement ----- */
+.train{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,6vw,80px);align-items:end}
+.train h2{font-size:clamp(54px,11vw,150px)}
+.train .grand{margin-top:22px}
+.fiche{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.fiche .panneau{font-size:24px}
+.fiche p{font-size:15px;color:var(--ink-2);margin-top:8px}
+@media (max-width:820px){.train{grid-template-columns:1fr}}
+
+/* ----- carnet : mosaïque en parallaxe ----- */
+.carnet{overflow:hidden}
+.carnet h2{margin-bottom:40px}
+.mosaique{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,22px);align-items:start}
+.mosaique .col{display:grid;gap:clamp(10px,1.6vw,22px);will-change:transform}
+.mosaique img{width:100%;height:auto;cursor:zoom-in}
+@media (max-width:700px){.mosaique{grid-template-columns:repeat(2,1fr)}.mosaique .col:nth-child(3){display:none}}
+
+/* ----- TikTok ----- */
+.tt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(24px,5vw,70px);align-items:center}
+.tt h2{font-size:clamp(48px,8vw,110px);margin-bottom:18px}
+.tt .grand{margin-bottom:26px}
+.tt .tiktok-embed{width:100%}
+.sans-tt .tt{grid-template-columns:1fr}
+.sans-tt .tiktok-embed,.sans-tt .direct{display:none}
+@media (max-width:820px){.tt{grid-template-columns:1fr}}
+
+/* ----- partenaires ----- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,7vw,110px)}
+.duo h2{font-size:clamp(40px,6.4vw,84px);margin-bottom:24px}
+.duo ul{list-style:none;border-top:2px solid var(--ink)}
+.duo li{padding:15px 0;border-bottom:1px solid rgba(20,32,43,.25)}
+.duo li b{font-family:var(--disp);font-size:25px;font-weight:700;display:block;line-height:1.1}
+.duo li span{color:var(--ink-2);font-size:16px}
+.petit{margin-top:clamp(50px,8vw,100px);font-family:var(--disp);font-weight:800;font-size:clamp(34px,6vw,80px);line-height:1;max-width:16em}
+@media (max-width:820px){.duo{grid-template-columns:1fr}}
+
+/* ----- 8000 m : le sommet ----- */
+.sommet{background:var(--nuit);color:#fff;padding-bottom:60px;overflow:hidden;isolation:isolate}
+.sommet .ciel{position:absolute;inset:0;z-index:-2;background:url("nuit-etoiles.jpg") center top/cover;opacity:.55}
+.sommet::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,26,51,.2),var(--nuit) 78%)}
+#etoiles{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.sommet h2{font-size:clamp(60px,13vw,180px);margin-bottom:18px}
+.sommet .grand{color:var(--ciel-nuit)}
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);margin-top:50px;align-items:start}
+.direct{display:grid;gap:10px;justify-items:start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column;gap:6px}.f.full{grid-column:1/-1}
+label{font-size:15px;font-weight:600;color:var(--ciel-nuit)}
+input,select,textarea{font:inherit;color:#fff;background:rgba(255,255,255,.07);border:0;border-bottom:2px solid rgba(255,255,255,.45);padding:12px 12px;width:100%;border-radius:0;transition:background .2s,border-color .2s}
+select option{background:var(--nuit)}
+textarea{min-height:140px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--panneau);background:rgba(255,255,255,.12)}
+.hp{position:absolute;left:-9999px}
+.envoi{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.envoi small{color:var(--ciel-nuit);font-size:14px}
+button.panneau{border:0;background:none;cursor:pointer;font-size:24px;padding:0}
+button.panneau[disabled]{opacity:.6;pointer-events:none}
+.etat{grid-column:1/-1;display:none;padding:14px 16px;font-weight:500}
+.etat.ok{display:block;background:#1d6b4a}.etat.err{display:block;background:#8d1f24}
+footer{margin-top:90px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25);font-size:14px;color:var(--ciel-nuit);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+@media (max-width:820px){.contact{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+
+/* ----- visionneuse ----- */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(8,14,26,.95);display:none;place-items:center}
+.lb.open{display:grid}
+.lb img{max-width:94vw;max-height:84vh}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:15px;max-width:none}
+.lb button{position:absolute;background:var(--panneau);border:0;color:#111;width:46px;height:46px;font:700 24px var(--disp);cursor:pointer}
+.lb .x{top:14px;right:14px}.lb .p{left:10px;top:50%}.lb .s{right:10px;top:50%}
+.flocon{position:fixed;top:-12px;z-index:100;border-radius:50%;background:#fff;pointer-events:none;animation:tombe linear forwards}
+@keyframes tombe{to{transform:translate(var(--dx),112vh)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="alti" id="alti" aria-hidden="true">
+  <div class="rail"></div><div class="plein" id="altiPlein"></div>
+  <i style="bottom:25%"></i><i style="bottom:50%"></i><i style="bottom:75%"></i><i style="bottom:100%"></i>
+  <div class="cur" id="altiCur">0 m</div>
+</div>
+
+<!-- ============ 0 m ============ -->
+<header class="hero" id="haut">
+  <div class="top">
+    <a class="nom" href="#haut">Dani Graber</a>
+    <a class="panneau" href="#sommet"><span class="b"></span><span class="t">Me contacter</span></a>
+  </div>
+  <div class="calque" data-v="-18"><div class="soleil" id="soleil"></div></div>
+  <div class="calque" data-v="14">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#b9cbe0" d="M0 560 170 430l90 70 150-190 120 150 110-90 150 170 130-250 150 210 110-80 130 140 130-110v650H0z"/><path fill="#fff" opacity=".8" d="m410 310 46 58-38-14-30 26zM930 290l56 78-44-22-36 34z"/></svg>
+  </div>
+  <div class="titre" id="titre">
+    <p class="sous">Dani, 16 ans. Objectif : les 14 plus hauts sommets du monde, un pas après l'autre.</p>
+    <h1><span>14</span> <span>×</span> <span>8000</span></h1>
+  </div>
+  <div class="calque" data-v="26">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#7f97b3" d="M0 690 140 600l120 60 170-170 130 110 150-150 160 190 140-110 150 130 140-180 140 150v370H0z"/></svg>
+  </div>
+  <div class="calque" data-v="40">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#4b627c" d="M0 780 180 700l140 70 160-120 170 110 190-140 170 130 160-90 150 100 120-60v220H0z"/></svg>
+  </div>
+  <div class="calque" data-v="58">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#263645" d="M0 850 200 800l180 50 220-70 200 60 240-60 200 50 200-40v110H0z"/></svg>
+  </div>
+  <div class="monte">Faites défiler pour monter</div>
+  <div class="bas">
+    <a class="panneau" href="#suite"><span class="b"></span><span class="t">Le projet <small>Mont Blanc, été 2027</small></span></a>
+    <a class="panneau" href="#soutenir"><span class="b"></span><span class="t">Devenir partenaire</span></a>
+  </div>
+</header>
+
+<main>
+<!-- ============ Dani ============ -->
+<section id="dani" data-ciel="#fbeedb">
+  <div class="wrap dani">
+    <div class="cadre" id="cadreDani"><img src="toubkal-sommet.jpg" alt="Dani et un ami au sommet du Toubkal, devant la pyramide du sommet"></div>
+    <div>
+      <h2>Je m'appelle Dani.</h2>
+      <p class="grand">J'ai 16 ans et j'habite dans le Nord vaudois. Je grimpe, je marche, et je filme tout.</p>
+      <ul>
+        <li><b>Club Alpin Suisse</b><span>section d'Yverdon</span></li>
+        <li><b>Escalade et bloc</b><span>en salle</span></li>
+        <li><b>Via ferrata, neige, plongée</b><span>le reste du temps</span></li>
+        <li><b>Haute montagne</b><span>toujours avec un guide diplômé</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Déjà gravis ============ -->
+<section class="roule" id="gravis" data-ciel="#e9efe3" aria-label="Sommets déjà gravis">
+  <div class="piste" id="piste">
+    <div class="intro">
+      <div class="alt">4167 m</div>
+      <h2>Toubkal</h2>
+      <p class="grand">Le plus haut sommet d'Afrique du Nord. Départ de nuit, lever du soleil au sommet.</p>
+    </div>
+    <figure><img src="toubkal-nuit.jpg" alt="Départ de nuit, à la frontale" loading="lazy"><figcaption>Départ de nuit</figcaption></figure>
+    <figure><img src="toubkal-ascension.jpg" alt="Dans la montée du Toubkal" loading="lazy"><figcaption>La montée</figcaption></figure>
+    <figure><img src="toubkal-lever.jpg" alt="Lever du soleil près du sommet" loading="lazy"><figcaption>Le soleil se lève</figcaption></figure>
+    <figure><img src="toubkal-sommet.jpg" alt="Au sommet du Toubkal" loading="lazy"><figcaption>Sommet, 4167 m</figcaption></figure>
+    <figure><img src="toubkal-groupe.jpg" alt="Le groupe au sommet du Toubkal" loading="lazy"><figcaption>Tout le groupe</figcaption></figure>
+    <div class="intro" style="margin-left:6vw">
+      <div class="alt">plus de 4000 m</div>
+      <h2>Mont Cameroun</h2>
+      <p class="grand">Un volcan, de la forêt tropicale aux coulées de lave. Le toit de l'Afrique de l'Ouest et centrale.</p>
+    </div>
+    <div class="paire"><figure><img src="cameroun-escalier.jpg" alt="Entrée du sentier dans la forêt" loading="lazy"></figure><figure><img src="cameroun-foret.jpg" alt="Forêt tropicale dans la brume" loading="lazy"></figure></div>
+    <div class="paire"><figure><img src="cameroun-foret-depart.jpg" alt="Sortie de la forêt" loading="lazy"></figure><figure><img src="cameroun-montee.jpg" alt="Montée dans les hautes herbes" loading="lazy"></figure></div>
+    <div class="paire"><figure><img src="cameroun-coulee.jpg" alt="Coulées de lave" loading="lazy"></figure><figure><img src="cameroun-pentes.jpg" alt="Pentes volcaniques" loading="lazy"></figure></div>
+    <div class="paire"><figure><img src="cameroun-sommet.jpg" alt="Dani au sommet du Mont Cameroun, à côté du panneau du sommet" loading="lazy"></figure><figure><img src="cameroun-vue.jpg" alt="Vue depuis les pentes du Mont Cameroun" loading="lazy"></figure></div>
+  </div>
+</section>
+
+<!-- ============ La suite ============ -->
+<section class="suite" id="suite" data-ciel="#e6eaee">
+  <div class="wrap">
+    <h2>La suite du chemin</h2>
+    <p class="grand">14 sommets de plus de 8000 m. Un projet sur plusieurs années, étape par étape.</p>
+
+    <div class="graphe" id="graphe">
+      <svg viewBox="0 0 1000 480" role="img" aria-label="Altitude des sommets déjà gravis et des objectifs">
+        <g class="grille">
+          <line x1="70" x2="960" y1="355.9" y2="355.9"/><line x1="70" x2="960" y1="261.8" y2="261.8"/>
+          <line x1="70" x2="960" y1="167.6" y2="167.6"/><line x1="70" x2="960" y1="73.5" y2="73.5"/>
+          <line x1="70" x2="960" y1="450" y2="450" style="stroke:rgba(20,32,43,.5)"/>
+        </g>
+        <g class="axe" text-anchor="end">
+          <text x="60" y="360">2000</text><text x="60" y="266">4000</text><text x="60" y="172">6000</text><text x="60" y="78">8000 m</text>
+        </g>
+        <path class="massif" d="M70 430 130 260l75 80 75-86 85 91 85-121 75 96 75-81 85 61 85-141 75 91 75-176 40 66V450H70z"/>
+        <path class="crete" d="M70 430 130 260l75 80 75-86 85 91 85-121 75 96 75-81 85 61 85-141 75 91 75-176 40 66"/>
+        <path class="trace" id="trace" d="M70 430 130 260l75 80 75-86 85 91 85-121 75 96 75-81 85 61 85-141 75 91 75-176"/>
+        <g id="points"></g>
+        <circle class="grimpeur" id="grimpeur" r="9" cx="70" cy="430"/>
+      </svg>
+      <div class="bulle" id="bulle"></div>
+    </div>
+    <div class="legende"><span><i class="l1"></i>Déjà gravi</span><span><i class="l2"></i>Objectif</span></div>
+
+    <div class="poteau">
+      <span class="panneau"><span class="b"></span><span class="t">Mont Blanc, 4806 m <small>été 2027, avec un guide</small></span></span>
+      <span class="panneau"><span class="b"></span><span class="t">Cervin, 4478 m <small>ensuite</small></span></span>
+      <span class="panneau"><span class="b"></span><span class="t">Island Peak, 6189 m <small>ensuite</small></span></span>
+      <span class="panneau"><span class="b"></span><span class="t">Un premier 8000 m <small>dès que les fonds le permettent</small></span></span>
+    </div>
+    <p class="note">Cette liste n'est pas exacte : je compte faire d'autres sommets intermédiaires pour évoluer petit à petit.</p>
+  </div>
+</section>
+
+<!-- ============ Entraînement ============ -->
+<section id="entrainement" data-ciel="#f1f5f8">
+  <div class="wrap train">
+    <div>
+      <h2>Je m'entraîne dur, tous les jours.</h2>
+      <p class="grand">Le soir après les cours, de 1 à 3 heures. Et souvent, une sortie en montagne.</p>
+    </div>
+    <div class="fiche">
+      <span class="panneau"><span class="b"></span><span class="t">Fully <small>départ</small></span></span>
+      <span class="panneau"><span class="b"></span><span class="t">2900 m <small>altitude max</small></span></span>
+      <span class="panneau"><span class="b"></span><span class="t">2500 m D+ <small>environ</small></span></span>
+      <span class="panneau"><span class="b"></span><span class="t">7 h 50 <small>durée</small></span></span>
+      <p>Une de mes sorties, filmée et publiée sur TikTok.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Carnet ============ -->
+<section class="carnet" id="carnet" data-ciel="#f7fafc">
+  <div class="wrap">
+    <h2>Carnet de route</h2>
+    <div class="mosaique" id="mosaique"></div>
+  </div>
+</section>
+
+<!-- ============ TikTok ============ -->
+<section id="tiktok" data-ciel="#eaf2fa">
+  <div class="wrap tt">
+    <div>
+      <h2>Tout est filmé.</h2>
+      <p class="grand">Chaque étape du projet est publiée sur TikTok. <span class="direct">Le nombre d'abonnés affiché ici est en direct.</span></p>
+      <a class="panneau" href="https://www.tiktok.com/@danimontagne1" target="_blank" rel="noopener"><span class="b"></span><span class="t">TikTok @danimontagne1</span></a>
+    </div>
+    <!-- Carte officielle TikTok : abonnés, j'aime et dernières vidéos, mis à jour tout seuls -->
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@danimontagne1" data-unique-id="danimontagne1" data-embed-type="creator" style="max-width:780px;min-width:288px;margin:0">
+      <section><a target="_blank" rel="noopener" href="https://www.tiktok.com/@danimontagne1?refer=creator_embed">@danimontagne1</a></section>
+    </blockquote>
+  </div>
+  <script async src="https://www.tiktok.com/embed.js"></script>
+</section>
+
+<!-- ============ Partenaires ============ -->
+<section id="soutenir" data-ciel="#dbe8f6">
+  <div class="wrap">
+    <div class="duo">
+      <div>
+        <h2>Ce qu'il me manque</h2>
+        <ul>
+          <li><b>Du matériel</b><span>Veste, pantalon, doudoune, gants, lunettes de glacier, crampons, piolet, casque, sac.</span></li>
+          <li><b>Un soutien financier</b><span>Le guide, les courses de préparation, les refuges, le matériel de tournage.</span></li>
+          <li><b>Des services</b><span>Tests de performance, suivi d'entraînement, conseils.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Ce que je donne en retour</h2>
+        <ul>
+          <li><b>Votre nom dans mes vidéos</b><span>Mention, remerciement et logo dans la série.</span></li>
+          <li><b>Votre logo sur moi</b><span>Sur ma veste ou mon sac, et sur la photo au sommet.</span></li>
+          <li><b>Une vidéo pour vous</b><span>Test de votre matériel ou présentation de votre entreprise.</span></li>
+          <li><b>Des images à réutiliser</b><span>Et une présentation en magasin ou à un événement.</span></li>
+          <li><b>Un bilan chaque mois</b><span>Ce que votre soutien a permis, et mes chiffres.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="petit">Même un petit geste m'aide énormément.</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ 8000 m ============ -->
+<section class="sommet" id="sommet">
+  <div class="ciel"></div><canvas id="etoiles"></canvas>
+  <div class="wrap">
+    <div class="repere"><span class="panneau"><span class="b"></span><span class="t">Sommet <small>8000 m</small></span></span></div>
+    <h2>Avançons ensemble.</h2>
+    <p class="grand">Entreprise, magasin, club ou fondation : écrivez-moi. Je lis chaque message moi-même.</p>
+    <div class="contact">
+      <div class="direct">
+        <a class="panneau" href="mailto:danigrabereduvaud@gmail.com"><span class="b"></span><span class="t">danigrabereduvaud@gmail.com</span></a>
+        <a class="panneau" href="https://www.tiktok.com/@danimontagne1" target="_blank" rel="noopener"><span class="b"></span><span class="t">TikTok @danimontagne1</span></a>
+      </div>
+      <form id="form" novalidate>
+        <!-- ===== À REMPLACER : ta clé Web3Forms (voir GUIDE_MISE_EN_LIGNE.md) ===== -->
+        <input type="hidden" name="access_key" value="COLLE_TA_CLE_WEB3FORMS_ICI">
+        <input type="hidden" name="subject" value="Nouveau message depuis le site 14 × 8000 m">
+        <input type="hidden" name="from_name" value="Site 14 × 8000 m">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <div class="f"><label for="nom">Nom et prénom</label><input id="nom" name="nom" required autocomplete="name"></div>
+        <div class="f"><label for="entreprise">Entreprise (facultatif)</label><input id="entreprise" name="entreprise" autocomplete="organization"></div>
+        <div class="f"><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="f"><label for="tel">Téléphone (facultatif)</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></div>
+        <div class="f full"><label for="type">Type de soutien</label>
+          <select id="type" name="type_de_soutien"><option>Je ne sais pas encore</option><option>Matériel</option><option>Soutien financier</option><option>Services (tests, suivi, conseils)</option><option>Média, article</option><option>Autre</option></select></div>
+        <div class="f full"><label for="msg">Message</label><textarea id="msg" name="message" required></textarea></div>
+        <div class="etat" id="etat" role="status" aria-live="polite"></div>
+        <div class="envoi">
+          <button class="panneau" type="submit" id="envoyer"><span class="b"></span><span class="t" id="envoyerTxt">Envoyer le message</span></button>
+          <small>Vos coordonnées servent uniquement à vous répondre.</small>
+        </div>
+      </form>
+    </div>
+    <footer><span>© 2026 Dani Graber, Nord vaudois, Suisse</span><a href="#haut">Redescendre dans la vallée</a></footer>
+  </div>
+</section>
+
+<div class="lb" id="lb"><button class="x" aria-label="Fermer">×</button><button class="p" aria-label="Photo précédente">‹</button><img alt=""><button class="s" aria-label="Photo suivante">›</button><p></p></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const calme = matchMedia("(prefers-reduced-motion: reduce)").matches && !location.search.includes("anim");
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const G = window.gsap && window.ScrollTrigger && !calme ? window.gsap : null;
+
+  /* ----- mosaïque ----- */
+  const carnet = [
+    ["toubkal-sentier","Sur le sentier du Toubkal"],["cameroun-arbre","Pentes du Mont Cameroun"],["coucher-silhouettes","Fin de journée"],
+    ["toubkal-refuge","Pause au refuge"],["mer-de-nuages","Au-dessus de la mer de nuages"],["cameroun-herbes","Dans les hautes herbes"],
+    ["toubkal-repas","Repas avant la montée"],["coucher-herbes","Coucher de soleil"],["cameroun-nuages","Dans les nuages"],
+    ["toubkal-marche","En route"],["cameroun-brume","Dans la brume"],["toubkal-aube","Aube dans le Haut Atlas"],
+    ["cameroun-crete","Les crêtes"],["crepuscule","Crépuscule"],["cameroun-collines","Collines d'herbe"],
+  ];
+  const mos = $("#mosaique"), cols = [0, 1, 2].map(() => { const c = document.createElement("div"); c.className = "col"; mos.appendChild(c); return c; });
+  const deuxCols = innerWidth <= 700;
+  carnet.forEach(([f, c], i) => { const im = new Image(); im.src = f + ".jpg"; im.alt = c; im.loading = "lazy"; cols[i % (deuxCols ? 2 : 3)].appendChild(im); });
+
+  /* ----- visionneuse (toutes les photos du site) ----- */
+  const lb = $("#lb"), lbImg = $("img", lb), lbTxt = $("p", lb);
+  let liste = [], cur = 0;
+  const voir = i => { cur = (i + liste.length) % liste.length; lbImg.src = liste[cur].src; lbTxt.textContent = lbImg.alt = liste[cur].alt; };
+  document.addEventListener("click", e => {
+    const im = e.target.closest(".piste img, .mosaique img"); if (!im) return;
+    liste = $$(".piste img, .mosaique img").filter(x => x.offsetParent); voir(liste.indexOf(im)); lb.classList.add("open");
+  });
+  const fermer = () => lb.classList.remove("open");
+  $(".x", lb).onclick = fermer; $(".p", lb).onclick = () => voir(cur - 1); $(".s", lb).onclick = () => voir(cur + 1);
+  lb.addEventListener("click", e => { if (e.target === lb) fermer(); });
+  addEventListener("keydown", e => { if (!lb.classList.contains("open")) return; if (e.key === "Escape") fermer(); if (e.key === "ArrowLeft") voir(cur - 1); if (e.key === "ArrowRight") voir(cur + 1); });
+  let tx = 0; lb.addEventListener("touchstart", e => tx = e.touches[0].clientX, { passive: true });
+  lb.addEventListener("touchend", e => { const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) voir(cur + (d < 0 ? 1 : -1)); });
+
+  /* ----- graphique : points, étiquettes, bulles ----- */
+  const sommets = [
+    { x: 130, y: 260, n: "Mont Cameroun", a: "plus de 4000 m", fait: 1 }, { x: 280, y: 254, n: "Toubkal", a: "4167 m", fait: 1 },
+    { x: 450, y: 224, n: "Mont Blanc", a: "4806 m", q: "été 2027" }, { x: 600, y: 239, n: "Cervin", a: "4478 m", q: "ensuite" },
+    { x: 770, y: 159, n: "Island Peak", a: "6189 m", q: "ensuite" }, { x: 920, y: 74, n: "Premier 8000", a: "8000 m et plus", q: "dès que les fonds le permettent" },
+  ];
+  const gr = $("#graphe"), gp = $("#points"), bulle = $("#bulle"), NS = "http://www.w3.org/2000/svg";
+  sommets.forEach((s, i) => {
+    const g = document.createElementNS(NS, "g"); g.setAttribute("class", "pt"); g.setAttribute("tabindex", "0");
+    g.innerHTML = `<circle class="zone" cx="${s.x}" cy="${s.y}" r="30"/><circle class="${s.fait ? "fait" : "but"}" cx="${s.x}" cy="${s.y}" r="9"/>`;
+    gp.appendChild(g);
+    const et = document.createElement("div"); et.className = "nom" + (i === 0 || i === 3 ? " bas" : ""); et.style.left = s.x / 10 + "%"; et.style.top = s.y / 4.8 + "%";
+    et.innerHTML = `${s.n}<small>${s.a}</small>`; gr.appendChild(et);
+    const montre = () => { bulle.innerHTML = `<b>${s.n}</b>${s.a}<br>${s.fait ? "Déjà gravi" : "Objectif : " + s.q}`; bulle.style.left = Math.min(82, Math.max(18, s.x / 10)) + "%"; bulle.style.top = s.y / 4.8 + "%"; bulle.style.opacity = 1; };
+    const cache = () => bulle.style.opacity = 0;
+    g.addEventListener("pointerenter", montre); g.addEventListener("pointerleave", cache); g.addEventListener("focus", montre); g.addEventListener("blur", cache); g.addEventListener("click", montre);
+  });
+
+  /* ----- altimètre ----- */
+  const alti = $("#alti"), altiCur = $("#altiCur"), altiPlein = $("#altiPlein"), som = $("#sommet"), hero = $("#haut");
+  const rvb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  const ciels = [...$$("[data-ciel]").map(el => ({ el, c: rvb(el.dataset.ciel) })), { el: som, c: rvb("#0d1a33") }];
+  function altitude() {
+    const max = document.documentElement.scrollHeight - innerHeight, k = Math.min(1, scrollY / Math.max(1, max));
+    altiCur.textContent = (Math.round(k * 800) * 10).toLocaleString("fr-CH").replace(/[  ’']/g, " ") + " m";
+    altiCur.style.bottom = altiPlein.style.height = k * 100 + "%";
+    const milieu = innerHeight / 2, r = som.getBoundingClientRect();
+    alti.classList.toggle("clair", r.top < milieu);
+    alti.style.opacity = scrollY > 80 ? 1 : 0;
+    // la couleur du ciel change avec l'altitude
+    let c = ciels[0].c;
+    for (let i = 1; i < ciels.length; i++) { const t = Math.min(1, Math.max(0, (innerHeight * .85 - ciels[i].el.getBoundingClientRect().top) / (innerHeight * .6))); if (t > 0) c = c.map((v, j) => v + (ciels[i].c[j] - v) * t); }
+    document.body.style.backgroundColor = `rgb(${c.map(Math.round).join(",")})`;
+  }
+  addEventListener("scroll", altitude, { passive: true }); altitude();
+
+  /* ----- TikTok : si la carte ne charge pas (réseau qui bloque TikTok), on la cache ----- */
+  setTimeout(() => { if (!document.querySelector("#tiktok iframe")) document.getElementById("tiktok").classList.add("sans-tt"); }, 7000);
+
+  /* ----- compteurs ----- */
+  const compte = el => { const fin = +el.dataset.compte, t0 = performance.now(); const pas = t => { const k = Math.min(1, (t - t0) / 1500); el.textContent = Math.round(fin * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(pas); }; requestAnimationFrame(pas); };
+  if (!calme) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { compte(e.target); io.unobserve(e.target); } }), { threshold: .6 }); $$("[data-compte]").forEach(el => io.observe(el)); }
+
+  /* ----- animations liées au défilement (GSAP) ----- */
+  const trace = $("#trace"), grimpeur = $("#grimpeur"), L = trace.getTotalLength();
+  if (!G) { $("#gravis").classList.add("statique"); const p = trace.getPointAtLength(L); grimpeur.setAttribute("cx", p.x); grimpeur.setAttribute("cy", p.y); }
+  else {
+    G.registerPlugin(ScrollTrigger); ScrollTrigger.config({ ignoreMobileResize: true });
+
+    // arrivée : le soleil se lève, les crêtes se posent, le titre monte
+    const tl = G.timeline({ defaults: { ease: "power3.out" } });
+    tl.from("#soleil", { y: 260, duration: 2.2 }, 0)
+      .from(".hero .calque[data-v] svg", { yPercent: i => 10 + i * 8, duration: 1.8, stagger: .08 }, 0)
+      .from("#titre h1 span", { yPercent: 70, opacity: 0, duration: 1.2, stagger: .12 }, .35)
+      .from("#titre .sous, .hero .bas, .hero .monte, .top", { opacity: 0, y: 16, duration: .9, stagger: .1 }, 1);
+    // parallaxe des crêtes
+    $$(".hero .calque").forEach(c => G.to(c, { y: (60 - c.dataset.v) * 3.2, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } }));
+    G.to("#titre", { y: -160, opacity: 0, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "70% top", scrub: true } });
+
+
+    // la photo de Dani s'ouvre
+    G.fromTo("#cadreDani", { clipPath: "inset(22% 22% 22% 22%)" }, { clipPath: "inset(0% 0% 0% 0%)", ease: "none", scrollTrigger: { trigger: "#cadreDani", start: "top 90%", end: "top 30%", scrub: true } });
+    G.fromTo("#cadreDani img", { scale: 1.35 }, { scale: 1, ease: "none", scrollTrigger: { trigger: "#cadreDani", start: "top 90%", end: "top 30%", scrub: true } });
+
+    // défilement horizontal des sommets gravis
+    const piste = $("#piste"), dist = () => piste.scrollWidth - innerWidth;
+    G.to(piste, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: "#gravis", pin: true, scrub: .6, start: "top top", end: () => "+=" + dist(), invalidateOnRefresh: true, anticipatePin: 1 } });
+
+    // le tracé rouge monte, le grimpeur suit
+    G.set(trace, { strokeDasharray: L, strokeDashoffset: L });
+    const etat = { k: 0 };
+    G.to(etat, { k: 1, ease: "none", scrollTrigger: { trigger: "#graphe", start: "top 75%", end: "bottom 45%", scrub: .5 },
+      onUpdate() { const p = trace.getPointAtLength(L * etat.k); trace.style.strokeDashoffset = L * (1 - etat.k); grimpeur.setAttribute("cx", p.x); grimpeur.setAttribute("cy", p.y); } });
+    G.from(".poteau .panneau", { x: -60, opacity: 0, stagger: .12, duration: .6, ease: "back.out(1.6)", scrollTrigger: { trigger: ".poteau", start: "top 85%" } });
+    G.from(".fiche .panneau", { x: 60, opacity: 0, stagger: .1, duration: .6, ease: "back.out(1.6)", scrollTrigger: { trigger: ".fiche", start: "top 85%" } });
+
+    // mosaïque : chaque colonne à sa vitesse
+    cols.forEach((c, i) => { const d = [90, -70, 140][i]; G.fromTo(c, { y: d }, { y: -d, ease: "none", scrollTrigger: { trigger: mos, start: "top bottom", end: "bottom top", scrub: true } }); });
+
+    addEventListener("load", () => ScrollTrigger.refresh());
+  }
+
+  /* ----- étoiles du sommet ----- */
+  const cv = $("#etoiles"), cx = cv.getContext("2d"); let st = [], W, H, filante = null, visible = false;
+  function taille() { const d = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; cx.setTransform(d, 0, 0, d, 0, 0); st = Array.from({ length: Math.round(W * H / 4200) }, () => ({ x: Math.random() * W, y: Math.random() * H * .7, r: Math.random() * 1.3 + .2, p: Math.random() * 6.28, s: .5 + Math.random() * 1.8 })); }
+  function image(t) {
+    cx.clearRect(0, 0, W, H); cx.fillStyle = "#fff";
+    for (const s of st) { cx.globalAlpha = calme ? .7 : .3 + .7 * Math.abs(Math.sin(s.p + t / 1000 * s.s)); cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, 6.283); cx.fill(); }
+    if (!calme) {
+      if (!filante && Math.random() < .006) filante = { x: W * (.25 + Math.random() * .7), y: H * Math.random() * .25, l: 0 };
+      if (filante) { filante.l += 16; const k = filante.l / 460; cx.globalAlpha = Math.max(0, 1 - k); cx.strokeStyle = "#fff"; cx.lineWidth = 1.5; cx.beginPath(); cx.moveTo(filante.x - filante.l, filante.y + filante.l * .45); cx.lineTo(filante.x - filante.l + 80, filante.y + filante.l * .45 - 36); cx.stroke(); if (k >= 1) filante = null; }
+      if (visible) requestAnimationFrame(image);
+    }
+    cx.globalAlpha = 1;
+  }
+  taille(); addEventListener("resize", taille);
+  new IntersectionObserver(e => { const v = e[0].isIntersecting; if (v && !visible) { visible = true; requestAnimationFrame(image); } visible = v; }).observe(som);
+
+  /* ----- formulaire (Web3Forms) ----- */
+  const form = $("#form"), etat = $("#etat"), btn = $("#envoyer"), btnTxt = $("#envoyerTxt");
+  const dire = (html, ok) => { etat.className = "etat " + (ok ? "ok" : "err"); etat.innerHTML = html; };
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { dire("Il manque votre nom, un e-mail valide ou votre message.", false); form.reportValidity(); return; }
+    const d = Object.fromEntries(new FormData(form));
+    if (d.access_key.startsWith("COLLE_")) {
+      const corps = encodeURIComponent(`${d.message}\n\n${d.nom}${d.entreprise ? ", " + d.entreprise : ""}\n${d.email}${d.telephone ? "\n" + d.telephone : ""}\nSoutien : ${d.type_de_soutien}`);
+      dire(`Le formulaire n'est pas encore activé. <a href="mailto:danigrabereduvaud@gmail.com?subject=${encodeURIComponent("Partenariat 14 × 8000 m")}&body=${corps}">Envoyer ce message par e-mail</a>.`, false); return;
+    }
+    btn.disabled = true; btnTxt.textContent = "Envoi en cours…";
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) });
+      const j = await r.json(); if (!j.success) throw new Error(j.message);
+      dire("Message envoyé. Je vous réponds dès que possible.", true); form.reset(); neige();
+    } catch (err) { dire('Le message n\'est pas parti. Écrivez-moi à <a href="mailto:danigrabereduvaud@gmail.com">danigrabereduvaud@gmail.com</a>.', false); }
+    finally { btn.disabled = false; btnTxt.textContent = "Envoyer le message"; }
+  });
+  function neige() { if (calme) return; for (let i = 0; i < 70; i++) { const f = document.createElement("i"); f.className = "flocon"; const t = 4 + Math.random() * 7; f.style.cssText = `left:${Math.random() * 100}vw;width:${t}px;height:${t}px;--dx:${Math.random() * 140 - 70}px;animation-duration:${2.5 + Math.random() * 2.5}s;animation-delay:${Math.random()}s`; document.body.appendChild(f); setTimeout(() => f.remove(), 6500); } }
+})();
+</script>
+</body>
+</html>
